@@ -1,0 +1,17 @@
+{
+  "name": "18-forkify",
+  "version": "1.0.0",
+  "description": "Recipe application",
+  "type": "module",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.16.4",
+    "parcel": "^2.16.4"
+  },
+  "dependencies": {
+    "fracty": "^1.0.12"
+  }
+}
