@@ -90,7 +90,7 @@ const controlBookmarks = function () {
 const controlAddRecipe = async function (newRecipe) {
   try {
     // Show loading spinner
-    // addRecipeView.renderSpinner();
+    addRecipeView.renderSpinner();
 
     // Upload the new recipe data
     await model.uploadRecipe(newRecipe);
@@ -100,7 +100,7 @@ const controlAddRecipe = async function (newRecipe) {
     recipeView.render(model.state.recipe);
 
     // Success message
-    // addRecipeView.renderMessage();
+    addRecipeView.renderMessage();
 
     // Render bookmark view
     bookmarksView.render(model.state.bookmarks);
@@ -108,10 +108,13 @@ const controlAddRecipe = async function (newRecipe) {
     // Change ID in the URL
     window.history.pushState(null, '', `#${model.state.recipe.id}`);
 
-    // Close form window
     setTimeout(function () {
       addRecipeView.toggleWindow();
-    }, MODAL_CLOSE_SEC * 1000);
+    }, MODAL_CLOSE_SEC * 2000);
+    // Close form window
+    setTimeout(function () {
+      addRecipeView.render(model.state.recipe);
+    }, MODAL_CLOSE_SEC * 3000);
   } catch (err) {
     console.error('💥', err);
     addRecipeView.renderError(err.message);
